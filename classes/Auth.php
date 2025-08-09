@@ -16,6 +16,7 @@ class Auth
         }
     }
 
+    // registrazione
     public function register($username, $email, $password)
     {
 
@@ -45,6 +46,7 @@ class Auth
         }
     }
 
+    // login
     public function login($username, $password)
     {
 
@@ -73,5 +75,28 @@ class Auth
         } catch (PDOException $error) {
             return ['success' => false, 'message' => 'Ops! Errore durante il login'];
         }
+    }
+
+    //verifica utente autenticato
+    public function isLoggin(){
+
+        if(!isset($_SESSION['user_id']) || !isset($_SESSION['login_time'])){
+            return false;
+        }
+
+        if(time() - $_SESSION['login_item'] > SESSION_TIMEOUT){
+            $this->logout();
+            return false;
+        }
+
+        return true;
+
+    }
+
+    // logout
+    public function logout(){
+        session_unset();
+        session_destroy();
+        return ['success' => true, 'message' => 'Disconessione, effettuata!'];
     }
 }
