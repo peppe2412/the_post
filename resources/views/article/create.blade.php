@@ -22,24 +22,24 @@
                     </div>
                     <div class="mb-3">
                         <label for="subtitle" class="form-label">Sottotitolo</label>
-                        <input type="text" class="form-control" id="subtitle">
+                        <input name="subtitle" type="text" class="form-control" id="subtitle">
                         @error('subtitle')
                             {{ $message }}
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Immagine</label>
-                        <input type="file" class="form-control" id="image">
+                        <input name="image" type="file" class="form-control" id="image">
                         @error('image')
                             {{ $message }}
                         @enderror
                     </div>
                     <div class="mb-3">
                         <label for="categories" class="form-label">Categoria</label>
-                        <select name="" class="form-control" id="categories">
+                        <select name="category" class="form-control" id="categories">
                             <option selected disabled>Scegli categoria</option>
                             @foreach ($categories as $category)
-                                <option value="{{ $category->category_id }}">{{$category->name}}</option>
+                                <option value="{{ $category->id }}">{{$category->name}}</option>
                             @endforeach
                         </select>
                         @error('category')
