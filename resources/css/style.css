@@ -1,3 +1,15 @@
-footer{
+:root{
+    --main: #f4f1f5;
+    --sec: #201f1f;
+}
+
+.fs-main {
+    font-family: "Carter One", system-ui;
+}
+
+
+
+
+footer {
     margin-top: 400px;
 }
