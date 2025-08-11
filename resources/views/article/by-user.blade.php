@@ -1,16 +1,16 @@
 <x-layout>
 
     <header class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-12 col-md-6">
-                <h1 class="text-center">Tutti gli articoli</h1>
+                <h1>Articoli di: {{ $user->name }}</h1>
             </div>
         </div>
     </header>
 
     <div class="container">
         <div class="row">
-            @foreach ($articles as $article)
+              @foreach ($articles as $article)
                 <div class="col-12 col-md-6">
                     <div class="card" style="width: 18rem;">
                         <img src="{{ Storage::url($article->image) }}" class="card-img-top" alt="...">
@@ -25,13 +25,6 @@
                             </div>
                             <div class="card-footer">
                                 <p>Redatto il: {{ $article->created_at->format('d-m-Y') }}</p>
-                                <small>
-                                    @if ($article->user)
-                                        da: <a href="{{ route('article-user', $article->user) }}">{{ $article->user->name }}</a>
-                                    @else
-                                        Autore sconosciuto
-                                    @endif
-                                </small>
                             </div>
                             <a href="{{ route('article-show', $article) }}" class="btn btn-primary">Go somewhere</a>
                         </div>
@@ -40,7 +33,5 @@
             @endforeach
         </div>
     </div>
-
-
 
 </x-layout>

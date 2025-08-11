@@ -13,4 +13,6 @@ Route::controller(ArticleController::class)->group(function (){
     Route::get('/article/create', 'create')->name('article-create');
     Route::post('/article/store', 'store')->name('article-store');
     Route::get('/article/show/{article}', 'show')->name('article-show');
+    Route::get('/article/category/{category}', 'byCategory')->name('article-category');
+    Route::get('/article/user/{user}', 'byUser')->name('article-user');
 });

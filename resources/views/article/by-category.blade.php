@@ -1,9 +1,9 @@
 <x-layout>
 
     <header class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <div class="col-12 col-md-6">
-                <h1 class="text-center">Tutti gli articoli</h1>
+               <h1>{{ $category->name }}</h1>
             </div>
         </div>
     </header>
@@ -27,7 +27,7 @@
                                 <p>Redatto il: {{ $article->created_at->format('d-m-Y') }}</p>
                                 <small>
                                     @if ($article->user)
-                                        da: <a href="{{ route('article-user', $article->user) }}">{{ $article->user->name }}</a>
+                                        da: {{ $article->user->name }}
                                     @else
                                         Autore sconosciuto
                                     @endif
@@ -40,7 +40,5 @@
             @endforeach
         </div>
     </div>
-
-
 
 </x-layout>

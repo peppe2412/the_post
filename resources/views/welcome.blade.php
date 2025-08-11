@@ -18,7 +18,7 @@
                             <p class="card-text">{{ $article->body }}</p>
                             <div>
                                 <small>
-                                    <a href="">{{ $article->category->name }}</a>
+                                    <a href="{{ route('article-category', $article->category) }}">{{ $article->category->name }}</a>
                                 </small>
                             </div>
                             <div class="card-footer">
