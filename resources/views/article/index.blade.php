@@ -33,7 +33,7 @@
                                     @endif
                                 </small>
                             </div>
-                            <a href="{{ route('article-show'), $article }}" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('article-show', $article) }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
