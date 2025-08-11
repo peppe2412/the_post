@@ -40,7 +40,7 @@ class ArticleController extends Controller implements HasMiddleware
         $request->validate([
             'title' => 'required|unique:articles|min:5',
             'subtitle' => 'required|min:8',
-            'image' => 'required|image',
+            'image' => 'required|image|mimes:jpg,png,jpeg|max:1024',
             'body' => 'required|min:10',
             'category' => 'required'
         ], [
@@ -54,6 +54,8 @@ class ArticleController extends Controller implements HasMiddleware
 
             'image.required' => 'Inserisci immagine',
             'image.image' => 'Inserisci immagine valida',
+            'image.mimes' => 'L\'immagine deve essere nei formati: jpg, jpeg o png',
+            'image.max' => 'Immagine troppo grande',
 
             'body.required' => 'Campo richiesto',
             'body.min' => 'Questo campo deve avere minimo 10 caratteri',
@@ -66,7 +68,7 @@ class ArticleController extends Controller implements HasMiddleware
         $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
-            'image' => $request->file('image')->store('images', 'desc'),
+            'image' => $request->file('image')->store('images', 'public'),
             'body' => $request->body,
             'category_id' => $request->category,
             'user_id' => Auth::user()->id
@@ -80,7 +82,7 @@ class ArticleController extends Controller implements HasMiddleware
      */
     public function show(Article $article)
     {
-        //
+        return view('article.show', compact('article'));
     }
 
     /**

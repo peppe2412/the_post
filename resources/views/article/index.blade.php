@@ -26,10 +26,14 @@
                             <div class="card-footer">
                                 <p>Redatto il: {{ $article->created_at->format('d-m-Y') }}</p>
                                 <small>
-                                    da: {{ $article->user->name }}
+                                    @if ($article->user)
+                                        da: {{ $article->user->name }}
+                                    @else
+                                        Autore sconosciuto
+                                    @endif
                                 </small>
                             </div>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('article-show'), $article }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
