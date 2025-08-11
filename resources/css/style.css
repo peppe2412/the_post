@@ -1,14 +1,87 @@
-:root{
+:root {
     --main: #f4f1f5;
     --sec: #201f1f;
+}
+
+.bg-main {
+    background-color: var(--main);
 }
 
 .fs-main {
     font-family: "Carter One", system-ui;
 }
 
+body {
+    background-color: var(--main);
+    color: var(--sec);
+}
 
+h1, label {
+    font-family: "Crimson Pro", serif;
+}
 
+#navbar {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.auth-nav-link {
+    transition: 0.3s;
+}
+
+.auth-nav-link:hover {
+    text-decoration: underline;
+}
+
+.new-article-link {
+    background-color: #2c2a2a3b;
+    transition: 0.3s;
+}
+
+.new-article-link:hover {
+    background-color: #201f1f67;
+}
+
+@media (max-width: 768px) {
+    .new-article-link {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+}
+
+.card-custom {
+    width: 40vh;
+}
+
+@media (max-width: 768px) {
+    .card-custom {
+        left: 10px;
+    }
+}
+
+.img-card {
+    object-fit: cover;
+    aspect-ratio: 4/5;
+}
+
+.btn-create-article{
+    background-color: var(--sec);
+    border: none;
+    color: var(--main);
+}
+
+.btn-show-article{
+    background-color: var(--main);
+    border: none;
+    color: var(--sec);
+}
+
+.btn-show-article:hover{
+    box-shadow: 0 1px 2px var(--sec);
+}
 
 footer {
     margin-top: 400px;
