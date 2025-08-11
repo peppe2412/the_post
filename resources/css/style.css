@@ -7,6 +7,18 @@
     background-color: var(--main);
 }
 
+.bg-sec{
+    background-color: var(--sec);
+}
+
+.color-main{
+    color: var(--main);
+}
+
+.border-main{
+    border: 1px solid var(--sec);
+}
+
 .fs-main {
     font-family: "Carter One", system-ui;
 }
@@ -16,7 +28,7 @@ body {
     color: var(--sec);
 }
 
-h1, label {
+h1, h2, label {
     font-family: "Crimson Pro", serif;
 }
 
@@ -81,6 +93,16 @@ h1, label {
 
 .btn-show-article:hover{
     box-shadow: 0 1px 2px var(--sec);
+}
+
+.link-new-user{
+    color: var(--sec);
+    transition: 0.3s;
+}
+
+.link-new-user:hover{
+    background-color: var(--sec);
+    color: var(--main);
 }
 
 footer {

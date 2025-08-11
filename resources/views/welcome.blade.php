@@ -18,7 +18,8 @@
                             <p class="card-text">{{ $article->body }}</p>
                             <div>
                                 <small>
-                                    <a href="{{ route('article-category', $article->category) }}">{{ $article->category->name }}</a>
+                                    <a
+                                        href="{{ route('article-category', $article->category) }}">{{ $article->category->name }}</a>
                                 </small>
                             </div>
                             <div class="mt-3 d-flex justify-content-center">
@@ -31,11 +32,8 @@
                         <div class="card-footer">
                             <p>Redatto il: {{ $article->created_at->format('d-m-Y') }}</p>
                             <small>
-                                @if ($article->user)
-                                    Da: <a href="{{ route('article-user', $article->user) }}">{{ $article->user->name }}
-                                @else
-                                    Autore sconosciuto
-                                @endif
+                                Da: <a href="{{ route('article-user', $article->user) }}">{{ $article->user->name }}</a>
+
                             </small>
                         </div>
                     </div>

@@ -22,7 +22,7 @@ class ArticleController extends Controller implements HasMiddleware
      */
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')->get();
+        $articles = Article::orderBy('created_at', 'desc')->paginate(10);
         return view('article.index', compact('articles'));
     }
 
@@ -112,12 +112,12 @@ class ArticleController extends Controller implements HasMiddleware
     }
 
     public function byCategory(Category $category){
-        $articles = $category->articles()->orderBy('created_at', 'desc')->get();
+        $articles = $category->articles()->orderBy('created_at', 'desc')->paginate(10);
         return view('article.by-category', compact('category', 'articles'));
     }
 
     public function byUser(User $user){
-        $articles = $user->articles()->orderBy('created_at', 'desc')->get();
+        $articles = $user->articles()->orderBy('created_at', 'desc')->paginate(10);
         return view('article.by-user', compact('articles', 'user'));
     }
 
