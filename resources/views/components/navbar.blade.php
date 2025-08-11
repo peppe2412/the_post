@@ -12,6 +12,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ route('article-index') }}">Articoli</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ route('carrers') }}">Lavora con noi</a>
+                </li>
                 @auth
                     <li class="nav-item">
                         <a class="nav-link active new-article-link rounded-2 mx-2" aria-current="page" href="{{ route('article-create') }}">

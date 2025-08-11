@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PublicController::class)->group(function (){
     Route::get('/', 'home')->name('home');
+    Route::get('/carrers', 'carrers')->name('carrers');
+    Route::get('/carrers/submit', 'carrersSubmit')->name('carrers-submit');
 });
 
 Route::controller(ArticleController::class)->group(function (){
