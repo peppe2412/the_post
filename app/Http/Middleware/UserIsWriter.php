@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserAdmin
+class UserIsWriter
 {
     /**
      * Handle an incoming request.
@@ -16,12 +16,10 @@ class UserAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() && Auth::user()->is_admin) {
-
+        if(Auth::user() && Auth::user()->is_writer){
             return $next($request);
-
         }
 
-        return redirect(route('home'))->with('alert', 'non sei autorizzato');
+        return redirect(route('home'))->with('alert', 'Non sei autorizzato');
     }
 }

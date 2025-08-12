@@ -57,6 +57,12 @@
                             @if (Auth::user()->is_admin)
                                 <li><a class="dropdown-item" href="{{ route('admin-dashboard') }}">Dashboard</a></li>
                             @endif
+                            @if (Auth::user()->is_revisor)
+                                <li><a class="dropdown-item" href="{{ route('revisor-dashboard') }}">Dashboard</a></li>
+                            @endif
+                            @if (Auth::user()->is_write)
+                                <li><a class="dropdown-item" href="{{ route('writer-dashboard') }}">Dashboard</a></li>
+                            @endif
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

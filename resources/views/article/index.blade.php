@@ -18,6 +18,22 @@
                             <h4 class="card-title">{{ $article->title }}</h4>
                             <h5 class="card-title">{{ $article->subtitle }}</h5>
                             <p class="card-text">{{ $article->body }}</p>
+                            @if (Auth::user() && Auth::user()->is_revisor)
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <form action="{{ route('revisor-acceptedArticle', $article) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success">Accetta articolo</button>
+                                            </form>
+                                            <form action="revisor-refuseArticle" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger">Rifiuta articolo</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                             <div>
                                 <small>
                                     <a
