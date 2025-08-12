@@ -7,6 +7,11 @@
                 {{ session('message') }}
             </div>
         @endif
+        @if (session('alert'))
+            <div class="alert alert-danger mt-5 w-25" id="alert">
+                {{ session('alert') }}
+            </div>
+        @endif
         <div class="row justify-content-around">
             @foreach ($articles as $article)
                 <div class="col-12 col-md-3 py-5">

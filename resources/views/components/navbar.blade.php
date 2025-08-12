@@ -17,7 +17,8 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link active new-article-link rounded-2 mx-2" aria-current="page" href="{{ route('article-create') }}">
+                        <a class="nav-link active new-article-link rounded-2 mx-2" aria-current="page"
+                            href="{{ route('article-create') }}">
                             <i class="bi bi-plus-square"></i> Inserisci articolo
                         </a>
                     </li>
@@ -53,7 +54,9 @@
                             <form action="{{ route('logout') }}" method="POST" id="logout" class="d-none">
                                 @csrf
                             </form>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            @if (Auth::user()->is_admin)
+                                <li><a class="dropdown-item" href="{{ route('admin-dashboard') }}">Dashboard</a></li>
+                            @endif
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
