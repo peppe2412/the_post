@@ -20,10 +20,12 @@ Route::controller(ArticleController::class)->group(function () {
 });
 
 Route::middleware('admin')->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
-    Route::patch('/admin/{user}/set-admin', [AdminController::class, 'setAdmin'])->name('set-admin');
-    Route::patch('/admin/{user}/set-revisor', [AdminController::class, 'setRevisor'])->name('set-revisor');
-    Route::patch('/admin/{user}/set-writer', [AdminController::class, 'setWriter'])->name('set-writer');
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin/dashboard', 'dashboard')->name('admin-dashboard');
+        Route::patch('/admin/{user}/set-admin', 'setAdmin')->name('set-admin');
+        Route::patch('/admin/{user}/set-revisor', 'setRevisor')->name('set-revisor');
+        Route::patch('/admin/{user}/set-writer', 'setWriter')->name('set-writer');
+    });
 });
 
 Route::middleware('revisor')->group(function () {
