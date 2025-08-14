@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'algolia'),
+    'driver' => env('SCOUT_DRIVER', 'tntsearch'),
 
     /*
     |--------------------------------------------------------------------------
@@ -121,6 +121,20 @@ return [
             //     'attributesForFaceting'=> ['filterOnly(email)'],
             // ],
         ],
+    ],
+
+    'tntsearch' => [
+        'storage' => storage_path(),
+        'funninies' => env('TNTSEARCH_FUZZINES', true),
+        'fuzzy' => [
+            'prefix_legth' => 2,
+            'max_expansion' => 50,
+            'distance' => 2,
+        ],
+
+        'asYouType' => false,
+        'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
+        'maxDocs' => env('TNTSEARCH_MAX_DOCS', 500)
     ],
 
     /*
